@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mthcore",
+  "name": "MTH Core",
+  "description": "Because who likes to change things more than once.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/MoreThanHidden/MTHCore",
+  "updateUrl": "",
+  "authorList": ["MoreThanHidden"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
