@@ -1,7 +1,6 @@
 package morethanhidden.MTHCore.util;
 
 
-import morethanhidden.MTHCore.MTHCore;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -22,12 +21,13 @@ public class ModelHelper {
 
     public static void registerItemModel(Item item, int metadata, String name, String suffix) {
         if (!name.contains(":")) {
-            name = String.format("%s:%s", MTHCore.MODID, name);
+            name = String.format("%s:%s", item.getRegistryName().getResourceDomain(), name);
         }
-        String type = name + suffix;
+
+        String type = name;
         type = type.toLowerCase(Locale.ROOT);
 
-        ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(type, "inventory"));
+        ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(type, suffix));
     }
 
     public void registerVariant(Item item, ResourceLocation... resources) {
