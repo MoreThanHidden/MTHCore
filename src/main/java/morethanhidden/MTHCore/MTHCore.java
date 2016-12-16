@@ -8,7 +8,7 @@ public class MTHCore
 {
 
     public static final String MODID = "mthcore";
-    public static final String VERSION = "0.1a";
+    public static final String VERSION = "0.2a";
 
     @Mod.Instance(value = "mthcore")
     public static MTHCore instance;
