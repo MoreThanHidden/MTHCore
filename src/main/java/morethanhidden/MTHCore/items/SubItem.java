@@ -13,17 +13,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class SubItem extends Item implements IModelRegister {
     private String[] itemNames;
-
+    int itemcount;
 
     public SubItem(String modid, String uname, String[] itemnames) {
         this.itemNames = itemnames;
+        this.itemcount = itemNames.length;
         setHasSubtypes(true);
         maxStackSize = 64;
         setUnlocalizedName(uname);
         setRegistryName(modid, uname);
     }
-
-    int itemcount = itemNames.length;
 
     public String getUnlocalizedName(ItemStack par1ItemStack)	{
         int i = MathHelper.clamp(par1ItemStack.getItemDamage(), 0, itemcount-1);
