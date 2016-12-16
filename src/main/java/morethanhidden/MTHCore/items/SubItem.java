@@ -16,6 +16,7 @@ public class SubItem extends Item implements IModelRegister {
 
 
     public SubItem(String modid, String uname, String[] itemnames) {
+        this.itemNames = itemnames;
         setHasSubtypes(true);
         maxStackSize = 64;
         setUnlocalizedName(uname);
