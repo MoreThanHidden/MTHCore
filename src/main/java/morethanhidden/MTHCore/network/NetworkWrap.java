@@ -28,7 +28,7 @@ public class NetworkWrap {
         network.registerMessage(handler, packetClazz, id++, side);
     }
 
-    public static void sendToClients(WorldServer world, BlockPos pos, Message packet) {
+    public static void sendToClients(WorldServer world, BlockPos pos, Message packet, NetworkWrap net) {
         Chunk chunk = world.getChunkFromBlockCoords(pos);
         for(EntityPlayer player : world.playerEntities) {
             // only send to relevant players
@@ -37,7 +37,7 @@ public class NetworkWrap {
             }
             EntityPlayerMP playerMP = (EntityPlayerMP) player;
             if(world.getPlayerChunkMap().isPlayerWatchingChunk(playerMP, chunk.xPosition, chunk.zPosition)) {
-                Sync.sendTo(packet, playerMP);
+                net.network.sendTo(packet, playerMP);
             }
         }
     }
