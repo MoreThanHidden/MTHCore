@@ -2,6 +2,7 @@ package morethanhidden.MTHCore.blocks;
 
 import morethanhidden.MTHCore.api.IRotatable;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -27,6 +28,12 @@ public class BlockBaseRotatable extends BlockBase implements IRotatable{
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		return state.getValue(FACING).ordinal();
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, FACING);
 	}
 
 	@Override
